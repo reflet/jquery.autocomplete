@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>オートコンプリート(jQuery UI)</title>
+  <link rel="stylesheet" type="text/css" href="css/lib/ui-lightness/jquery-ui-1.8.18.custom.css" />
+</head>
+<body>
+  <form>
+    <div>
+      <p>■名前</p>
+      <input type="text" name="name" size="15" class="method">
+    </div>
+    <div>
+      <p>■ふりがな</p>
+      <input type="text" name="kana" size="15" class="method">
+    </div>
+  </form>
+  <div id="autocomp"></div>
+
+  <script src="./js/lib/jquery-1.7.1.min.js"></script>
+  <script src="./js/lib/jquery-ui-1.8.18.custom.min.js"></script>
+  <script>
+    var list = [
+      'てすと たろう', 'てすと じろう', 'てすと さぶろう',
+      'てすと しろう', 'てすと ごろう', 'てすと ろくろう',
+      'てすと しちろう', 'てすと はちろう', 'てすと くろう',
+      'てすと じゅうろう', 'てすと じゅういち', 'てすと じゅうに'
+    ];
+    
+    $("input.method").autocomplete({
+      appendTo : '#autocomp',
+      source   : list,        // 入力候補リスト
+      minLength: 2,           // リストを表示するための最小文字数
+      delay    : 300          // キー入力からリスト表示までの時間 (ミリ秒)
+    });
+  </script>
+</body>
+</html>
